@@ -60,8 +60,12 @@ Route::group([
 		Route::get('status', function () {
 		    return "status";
 		});
-
 });
+
+//Blog routes - application endees ehelne
+Route::get('blog/{id}', ['as' => 'blog.list', 'uses' => 'BlogController@getList'])->where('id', '[0-9]+');
+
+Route::post('blog/post', ['as' => 'blog.post', 'uses' => 'BlogController@postBlog']);
 
 
 
