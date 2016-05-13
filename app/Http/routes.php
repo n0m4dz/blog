@@ -63,11 +63,11 @@ Route::group([
 });
 
 //Blog routes - application endees ehelne
-Route::get('blog/{id}', ['as' => 'blog.list', 'uses' => 'BlogController@getList'])->where('id', '[0-9]+');
+Route::get('list', ['as' => 'blog.list', 'uses' => 'BlogController@getList']);
+
+Route::get('blog', ['as' => 'blog', 'uses' => 'BlogController@blog']);
 
 Route::post('blog/post', ['as' => 'blog.post', 'uses' => 'BlogController@postBlog']);
-
-
 
 
 

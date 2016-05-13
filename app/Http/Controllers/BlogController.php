@@ -12,13 +12,16 @@ class BlogController extends Controller
 
     }
 
-    function getList(Request $request, $id){
-    	$request->get('param');
-    	return view('blog');	
+    function getList(Request $request){
+       	return view('list');	
     }
 
 	function detailBlog($id){
 
+    }
+
+    function blog(){
+        return view('blog');
     }
 
     function postBlog(BlogRequest $request){
