@@ -1,3 +1,5 @@
+@inject('helper', 'Helper\MyHelper')
+
 @extends('layouts.master')
 
 @section('style')
@@ -10,9 +12,19 @@
 
 <h1>Im outside of section</h1>
 
-@section('content')
-	
+@section('content')	
 	@include('partials.header')
+
+	<div style="background: #ababab; font-size: 28px;">
+		{{ $helper->myStrReplace($pageTitle) }}
+	</div>		
+
+	<hr>
+
+	<h2>{{ $title or 'not existed' }}</h2>
+
+	<h2>{{ $second or "second doesn't existed" }}</h2>
+
 	<form action="/blog/post" method="post">
 		{!! csrf_field() !!}
 		<input type="text" name="title" /> <br>

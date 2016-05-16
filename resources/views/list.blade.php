@@ -3,21 +3,24 @@
 @section('style')
 	<style type="text/css">
 	body{
-		background: #af2423;
-		color:#ffffff;
+		background: #f6f6f6;
+		color:#464646;
 	}
 	</style>
 @endsection
 
 @section('content')
 	<h1>Blog-n jagsaalt end bna</h1>
-	<?php $i = 0; ?>
 	<ul>
-	@while($i < 10)
+	@foreach($mydata as $md)
 		<li>
-			{{ ++$i }}
+			<strong>{{ $md['title'] }}</strong>
+			<br/>
+			{{ $md['content'] }}
+			<hr/>
 		</li>
-	@endwhile
+
+	@endforeach
 	</ul>
 
 @endsection
