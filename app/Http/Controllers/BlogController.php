@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use App\Http\Requests;
 use App\Http\Requests\BlogRequest;
 use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -17,15 +18,31 @@ class BlogController extends Controller
     }
 
     function getList(Request $request){
-        $data = [];
+        // $data = [];
         
-        for($i = 0; $i < 20; $i++){
-            $d = [
-                'title' => $this->faker->name,
-                'content' => $this->faker->text
-            ];
-            array_push($data, $d);
-        }
+        // for($i = 0; $i < 20; $i++){
+        //     $d = [
+        //         'title' => $this->faker->name,
+        //         'content' => $this->faker->text
+        //     ];
+        //     array_push($data, $d);
+        // }
+
+        //buh moriig butsaah
+        // $data = DB::table('post')->get();
+
+        //todorhoi toonii mor butsaah
+        // $data = DB::table('post')->select('id', 'title')->skip(10)->take(10)->get();
+
+        //nohtsol shalgah
+        // $data = DB::table('post')->where('id', '=', 15)->orWhere('id', '=', 16)->get();
+        // dump($data);
+
+        // $data = DB::table('post')->whereIn('id', [15,16,17,35])->orderBy('id', 'desc')->get();
+        // dump($data);
+
+        $data = DB::select(DB::raw('select * from post'));
+        dump($data);
 
         // dump($data);
         //pass data by array
