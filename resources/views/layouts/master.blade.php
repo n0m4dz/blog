@@ -7,12 +7,16 @@
 
 	<!-- tuhain huudasnii stylesheet -->
 	@yield('style')
+	<style type="text/css">
+		.active a{
+			font-weight:bold;
+			color: #f92343;
+		}
+	</style>
 	
 </head>
 <body>
-<h1 style="color:red;">
-	{{ $master or 'master variable doesn\'t exist' }}
-</h1>
+	@include('partials.header')
 
 	@yield('content')
 

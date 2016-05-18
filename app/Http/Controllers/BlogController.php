@@ -40,20 +40,37 @@ class BlogController extends Controller
 
         // $data = DB::table('post')->whereIn('id', [15,16,17,35])->orderBy('id', 'desc')->get();
         // dump($data);
-
-        $data = DB::select(DB::raw('select * from post'));
-        dump($data);
+        $users = DB::table('users')->get();
+        $data = DB::table('post')->orderBy('id', 'desc')->get();
+        //dump($data);
 
         // dump($data);
         //pass data by array
-        return view('list', ['mydata' => $data]);	
+        return view('list', ['mydata' => $data, 'users' => $users]);
 
         //pass data by compact helper
 
         //pass data by with helper
 
         //pass data by withAlias helper
+    }
 
+    function search(Request $request){
+        $user = $request->get('user');
+        $search = $request->get('search');
+
+        $post = DB::table('post');
+        $post->where('title', 'like', '%'. $search .'%');
+
+        if(!empty($user)){
+            $post->where('user_id', '=', $user);
+        }
+        $post->orderBy('id', 'desc');
+        $mydata = $post->get();
+
+        $users = DB::table('users')->get();
+        //dump($result);
+        return view('list', compact('mydata', 'users'));
     }
 
 	function detailBlog($id){
@@ -80,15 +97,28 @@ class BlogController extends Controller
 
     function postBlog(BlogRequest $request){
     	//post-r damjsan buh utgiig avah
-    	dump($request->all());
+    	//dump($request->all());
 
     	//token-s busad post-r damjsan utgiig avah
-    	dump($request->except('_token'));
+    	//dump($request->except('_token'));
     	$formData = $request->except('_token');
-    	echo $formData['title'];
+        //dump($formData);
+    	//echo $formData['title'];
 
     	//get single input value
-    	dump($request->input('title'));
-    	echo "blog post";
+    	//dump($request->input('title'));
+    	//echo "blog post";
+
+        $r = DB::table('post')->insert([
+                'user_id' => 5,
+                'title' => $formData['title'],
+                'content' => $formData['content']
+            ]);
+
+        if($r){
+            return redirect()->to('list')->with('msg', 'Амжилттай нэмэгдлээ');
+        }else{
+            return redirect()->back()->withInput();
+        }
     }
 }

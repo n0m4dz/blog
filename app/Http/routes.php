@@ -69,5 +69,7 @@ Route::get('blog', ['as' => 'blog', 'uses' => 'BlogController@blog']);
 
 Route::post('blog/post', ['as' => 'blog.post', 'uses' => 'BlogController@postBlog']);
 
+Route::get('blog/search', ['as' => 'search', 'uses' => 'BlogController@search']);
+
 
 
