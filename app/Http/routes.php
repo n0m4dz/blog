@@ -72,4 +72,13 @@ Route::post('blog/post', ['as' => 'blog.post', 'uses' => 'BlogController@postBlo
 Route::get('blog/search', ['as' => 'search', 'uses' => 'BlogController@search']);
 
 
+Route::auth();
 
+Route::get('/home', 'HomeController@index');
+
+
+Route::get('dashboard', [
+	'middleware' => ['auth'], 
+	function(){
+		return view('dashboard');
+}]);
