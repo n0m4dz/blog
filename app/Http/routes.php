@@ -13,7 +13,7 @@
 
 //get
 Route::get('/', function () {
-    return "desktop";
+    return view('index');
 });
 
 

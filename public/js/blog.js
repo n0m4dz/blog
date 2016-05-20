@@ -1,0 +1,1 @@
+$(function(){alert("Hello jQuery");helloUglify()});var helloUglify=function(){var e=document.getElementById("jqueryDiv");return e};

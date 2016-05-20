@@ -1,2 +1,16 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import "variables";
+
+body{
+	background:#cccccc;
+	color: $ink;
+}
+
+div{
+	backgroud: $bg;
+}
+
+h1{
+	color:#ff0000;
+}
