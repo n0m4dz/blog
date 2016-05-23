@@ -49,7 +49,7 @@ Route::get('apple/factory/{factory}/{year?}', 'AppleController@newApple')->where
 //Route group
 Route::group([
 	'prefix' => 'admin',
-	'middleware' => [],
+	'middleware' => ['auth'],
 	'as' => 'Admin::'
 	], function(){
 
@@ -60,12 +60,14 @@ Route::group([
 		Route::get('status', function () {
 		    return "status";
 		});
+
+		Route::get('blog', ['as' => 'blog', 'uses' => 'BlogController@blog']);
 });
 
 //Blog routes - application endees ehelne
 Route::get('list', ['as' => 'blog.list', 'uses' => 'BlogController@getList']);
 
-Route::get('blog', ['as' => 'blog', 'uses' => 'BlogController@blog']);
+
 
 Route::post('blog/post', ['as' => 'blog.post', 'uses' => 'BlogController@postBlog']);
 
@@ -82,3 +84,14 @@ Route::get('dashboard', [
 	function(){
 		return view('dashboard');
 }]);
+
+
+Route::group([
+	'namespace' => 'Orm',
+	'prefix' => 'orm',
+	'as' => 'ORM::'
+	], function(){
+		Route::get('list', ['as' => 'list', 'uses' => 'PostController@index']);
+		Route::post('store', ['as' => 'store', 'uses' => 'PostController@store']);
+	});
+
