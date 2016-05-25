@@ -8,12 +8,20 @@ use App\Http\Requests;
 use App\Post;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends AdminController
 {
     function index(){
     	$post = Post::get();
-    	return response()->json($post);
+
+        foreach ($post as $p) {
+            foreach($p->comments as $c){
+                echo $c->comment . "<hr />";
+            }
+        }
+
+    	// return response()->json($post);
     }
 
     function store(Request $request){

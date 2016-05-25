@@ -75,9 +75,7 @@ Route::get('blog/search', ['as' => 'search', 'uses' => 'BlogController@search'])
 
 
 Route::auth();
-
 Route::get('/home', 'HomeController@index');
-
 
 Route::get('dashboard', [
 	'middleware' => ['auth'], 
@@ -93,5 +91,8 @@ Route::group([
 	], function(){
 		Route::get('list', ['as' => 'list', 'uses' => 'PostController@index']);
 		Route::post('store', ['as' => 'store', 'uses' => 'PostController@store']);
+
+
+		Route::get('comment', ['as' => 'comment.list', 'uses' => 'CommentController@index']);
 	});
 

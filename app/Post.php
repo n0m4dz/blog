@@ -12,4 +12,12 @@ class Post extends Model
     protected $fillable = [
     	'title', 'content', 'thumb', 'user_id'
     ];
+
+    function comments(){
+   		return $this->hasMany('App\Comment');
+   	}
+
+   	function user(){
+   		return $this->belongsTo('App\User');
+   	}
 }
