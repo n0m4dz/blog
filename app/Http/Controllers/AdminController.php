@@ -18,4 +18,14 @@ class AdminController extends Controller
      //    }
     	echo "<h1>test</h1> <hr>";
     }
+
+    function setLocale(Request $request, $locale){
+    	\App::setLocale('mn');
+    	echo $lang = \App::getLocale();
+    	echo trans('tr.apple');
+    	dump($request);
+
+
+    }
+
 }

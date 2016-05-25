@@ -84,14 +84,19 @@ Route::get('dashboard', [
 }]);
 
 
+Route::get('language/{locale}', 'AdminController@setLocale');
+
 Route::group([
 	'namespace' => 'Orm',
 	'prefix' => 'orm',
-	'as' => 'ORM::'
+	'as' => 'ORM::',
+	'middleware' => ['ip']
 	], function(){
 		Route::get('list', ['as' => 'list', 'uses' => 'PostController@index']);
+		// Route::get('list', function(){
+		// 	return 'demo';
+		// });
 		Route::post('store', ['as' => 'store', 'uses' => 'PostController@store']);
-
 
 		Route::get('comment', ['as' => 'comment.list', 'uses' => 'CommentController@index']);
 	});

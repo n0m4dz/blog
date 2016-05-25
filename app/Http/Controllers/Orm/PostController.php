@@ -9,17 +9,33 @@ use App\Post;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class PostController extends AdminController
 {
-    function index(){
-    	$post = Post::get();
+    function index(Request $request){
+    	
+        //Session::flush('color');
 
-        foreach ($post as $p) {
-            foreach($p->comments as $c){
-                echo $c->comment . "<hr />";
-            }
+        if(Session::has('color')){
+            Session::set('color', 'green');
+        }else{
+            Session::set('color', 'blue');
         }
+
+
+
+        $color = Session::get('color');
+
+        echo "<div style='background: ". $color .";'> Hello Session </div>";
+
+        $post = Post::get();
+
+        // foreach ($post as $p) {
+        //     foreach($p->comments as $c){
+        //         echo $c->comment . "<hr />";
+        //     }
+        // }
 
     	// return response()->json($post);
     }

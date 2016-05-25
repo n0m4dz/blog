@@ -57,6 +57,14 @@
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                             </div>
                         </div>
+
+                        <h1> {!! trans('tr.apple') !!} </h1>
+
+                        <?php
+                            echo $lang = App::getLocale();
+                        ?>
+
+                        <a href="/language/mn">Mongol heltei bolgo</a>
                     </form>
                 </div>
             </div>
