@@ -1,15 +1,4 @@
-@extends('layouts.master')
 
-@section('style')
-	<style type="text/css">
-	body{
-		background: #f6f6f6;
-		color:#464646;
-	}
-	</style>
-@endsection
-
-@section('content')
 	<form action="/blog/search" method="get" class="search-form horizontal-form">
 		<div class="form-group">
 			<select name="user" class="form-control">
@@ -48,5 +37,6 @@
 		</li>
 	@endforeach
 	</ul>
-
-@endsection
+	<div>
+		{{ $mydata->appends(['items' => 4])->render() }}
+	</div>

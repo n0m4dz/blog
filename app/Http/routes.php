@@ -62,6 +62,7 @@ Route::group([
 		});
 
 		Route::get('blog', ['as' => 'blog', 'uses' => 'BlogController@blog']);
+		Route::post('fileup/load', 'BlogController@photo');
 });
 
 //Blog routes - application endees ehelne

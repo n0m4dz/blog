@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f3b6e920-2844-4875-8360-7204981b1036" name="blog" url="http://geek.mn">
+        <fileTransfer host="geek.mn" port="21" rootFolder="/blogsrc" password="dfc0dff3dfdbdf9adf9fdfe7df93dfdddf92dfd9" username="geekmn">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

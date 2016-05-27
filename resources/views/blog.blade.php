@@ -14,10 +14,12 @@
 
 	<h3>{{ Auth::user()->name }}</h3>
 
-	<form id="postFrm" action="{{ URL::route('ORM::store') }}" method="post">
-		{!! csrf_field() !!}
-		<input type="text" name="title" class="form-control" value="{{ old('title') }}" /> <br>
 
+
+	<form id="postFrm" enctype="multipart/form-data" action="{{ URL::route('ORM::store') }}" method="post">
+		{!! csrf_field() !!}
+
+		<input type="text" name="title" class="form-control" value="{{ old('title') }}" /> <br>
 		<textarea name="content" class="form-control">{{ old('content') }}</textarea> <br>
 
 		<input type="submit" value="submit" class="btn btn-success" />

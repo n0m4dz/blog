@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h1>Hello Elixir</h1>
+<h1>Hello My Server Automate</h1>
 
 <div id="jqueryDiv">
 	{{ bcrypt('pass123') }}

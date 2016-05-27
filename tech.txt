@@ -1,0 +1,55 @@
+//learn
+hhvm
+graphql
+react
+react-native
+relay (flux)
+jest(react), mocha, chai, karma, protactor(angular)
+immutable
+
+coffeescript, typescript - microsoft, ES6 (babeljs)
+python, ruby (dynamic) - c, java (static)
+
+/*** technology ***/
+backend - core module (stable, static, cpu, ram) - golang, c
+realtime, network - nodejs
+backend - python, php
+
+frontend 
+	- script (javascript, ELM(V), dart)
+	- es6 (es2015)
+	- react(V) + redux, angular2, vue1
+	- javascript testing
+
+Testing
+	- low - (console test)
+	- mid - (works on browser)
+	- high - (person - experience)
+
+
+/*** database ***/
+oracle - 
+
+nosql (not only sql)
+	1 - document based - mongodb, rethinkdb (json)
+	2 - key value - redis (key-value)
+	3 - column - (bigtable, cassandra) 
+	4 - graph - (neo4) 
+
+/*** cloud ***/
+oop - tohirohgui
+functional programming language (pure function) - scala (jvm), haskell
+
+/*** mobile ***/
+(objective c), swift - apple programming language
+
+/*** AI ***/
+lisp, prolog
+frame problem
+neurel data
+
+/*** Data processing ***/
+R, elixir
+
+
+/*** IOT + big data + AI ***/
